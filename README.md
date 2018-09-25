@@ -31,7 +31,7 @@ This is a starter project for One Creative builds with Formats 2.0 templates. It
 
 This will create a local server on localhost (usually http://localhost:3000). Any changes to CSS, JS or HTML will update  as you go
 ### Build deployment file
-Before deploying, choose a build config (instructions below
+Before deploying, choose a build config (instructions below)
 
     yarn build
 
@@ -48,3 +48,17 @@ The contents of the file
 
     src/webpack_configs
 For standard builds just use 'all_external.js'
+# Set the unit configuration
+This is done in 
+
+    /public/index.html
+Just update line 6
+
+    <meta name="ad.size" content="width=300,height=600">
+And set the config. If responsive is true the container will resize and reposition and the width and height must be set
+
+    let configObj = {  
+	    container:'#creative_container', // leave this
+	    responsive: false, 
+	    width: 300, height: 600
+    };
