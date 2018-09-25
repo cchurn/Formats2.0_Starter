@@ -35,7 +35,7 @@ Before deploying, choose a build config (instructions below
 
     yarn build
 
-This will compress everything including any images and produce a zip file name 'OneCreative.zip'
+This will compress everything including any images and produce a zip file name '**OneCreative.zip**'
 This can then be uploaded to One Creative. 
 
 # Choose a  build config
