@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
-  <script src="//ads.pictela.com/ads/jsapi/ADTECH.js"></script>
+  <meta name="ad.size" content="width=300,height=600">
+  <meta name="ad.frame" content="child">
+  <script src="{{Library 'AD-1.x.x'}}"></script>
   <title>Creative</title>
 </head>
 <body>
@@ -12,13 +14,18 @@
 </div>
 <div class="bt_close"></div>
 <script>
-    // Local
-    document.addEventListener("DOMContentLoaded", function() {
-        Creative.init({container:'#creative_container', width: 320, height: 568});
-      });
-    /*ADTECH.ready(function () {
-     Creative.init({container:'#creative_container', width: 320, height: 568});
-    });*/
+    function init() {
+        /**
+         * Creative is created on window in index.js
+         * width and height are optional and used in responsive builds eg mobile interstitial
+         */
+        Creative.init({container:'#creative_container', width: 300, height: 600});
+    }
+    if(window.location.href.indexOf('file://') !== -1 || window.location.href.indexOf('localhost') !== -1){
+        window.document.body.onload = init;
+    } else {
+        $AD.ready(init);
+    }
 </script>
 </body>
 </html>

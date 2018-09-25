@@ -1,24 +1,22 @@
-/* global*/
-// This is for cross domain tracking in One C
+/* global $AD*/
 export let tracked_events = {
-    EXAMPLE_TRACKED_EVENT: 'example tracked event',
-    TAP_TO_WEBSITE: 'tap to website'
+    EXAMPLE_TRACKED_EVENT: {label: 'example tracked event'},
+    TAP_TO_WEBSITE: {label: 'tap to website', url: 'http://www.oath.com'}
 };
 
 /**
- * One Creative tracking bridge
- * @param name
+ * Track clicks
  */
-export function trackMe(name) {
-    console.log('%c Tracking: '+name+' ', 'background: #ffcc00; color: #000000');
+export function trackClick(e) {
+    console.log('%c Tracking: '+ e.label +' ', 'background: #ffcc00; color: #000000');
+    console.log('', e.hasOwnProperty('url'));
     try {
-        var event = new CustomEvent("tracking", {
-            detail: {
-                label: name
-            }
-        });
-        window.dispatchEvent(event);
-    } catch(e) {
-        console.log('Failed to track', name, e);
+        if (e.hasOwnProperty('url')) {
+            $AD.click(e.label, e.url);
+        } else {
+            $AD.click(e.label);
+        }
+    } catch(err) {
+        console.log('Failed to track click:', e.label);
     }
 }
