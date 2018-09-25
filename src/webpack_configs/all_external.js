@@ -25,6 +25,7 @@ const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const ZipPlugin = require('zip-webpack-plugin');
 const tinyPngWebpackPlugin = require('tinypng-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -354,7 +355,10 @@ module.exports = {
         // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
         // You can remove this if you don't use Moment.js:
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
+        new tinyPngWebpackPlugin({
+            key:"tp58A84Qs2_Jk7GNlelBUJeyIrFk8s9p",
+            ext: ['png', 'jpeg', 'jpg']
+        }),
         new ZipPlugin({
             // OPTIONAL: defaults to the Webpack output path (above)
             // can be relative (to Webpack output path) or absolute
@@ -377,7 +381,7 @@ module.exports = {
             pathMapper: function(assetPath) {
                 // put all pngs in an `images` subdir
                 if (assetPath.endsWith('.png'))
-                    return path.join(path.dirname(assetPath), 'images', path.basename(assetPath));
+                    return path.join(path.dirname(assetPath), '', path.basename(assetPath));
                 return assetPath;
             },
 
@@ -405,10 +409,7 @@ module.exports = {
                 forceZip64Format: false,
             },
         }),
-        new tinyPngWebpackPlugin({
-            key:"tp58A84Qs2_Jk7GNlelBUJeyIrFk8s9p",
-            ext: ['png', 'jpeg', 'jpg']
-        })
+        new BundleAnalyzerPlugin()
     ],
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.
