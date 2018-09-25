@@ -80,6 +80,6 @@ Libraries can be imported like this (assuming they've been installed)
     import $ from 'jquery';
     import  *  as  PIXI  from  'pixi.js';
 
-Some of examples of this are in Display.js
+Some of examples of this are in Display.js. All imports will add to the overall build size (main.js)
 
    
