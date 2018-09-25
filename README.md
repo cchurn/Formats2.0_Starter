@@ -62,3 +62,24 @@ And set the config. If responsive is true the container will resize and repositi
 	    responsive: false, 
 	    width: 300, height: 600
     };
+# Start building
+
+The main files to edit are 
+
+    src/sass/_creative.scss
+    src/js/creative/Display.js (this is the usual start point)
+Images should be put in `/src/img` and can be referenced in css like this
+
+    background-image: url("./img/bg.png");
+Or in JS like this
+
+    image.src = require('./img/bg.png);
+Libraries can be imported like this (assuming they've been installed)
+
+    // at the top of the file
+    import $ from 'jquery';
+    import  *  as  PIXI  from  'pixi.js';
+
+Some of examples of this are in Display.js
+
+   
