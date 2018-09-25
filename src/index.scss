@@ -1,25 +1,29 @@
-@import 'sass/general';
+@import 'sass/mixins';
 @import 'sass/fonts';
+@import 'sass/general';
 @import 'sass/creative';
 
+/**
+  The following are active on responsive creatives only
+ */
 .portrait {
   .rescale_reposition {
-    background-image: url("./img/mocksite.jpg");
-    background-size: contain;
-    background-color: white;
+    background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: 50% 50%;
   }
 }
 .landscape {
   .rescale_reposition {
-    canvas {
-      display: none;
-    }
     background-image: url("./img/rotate_ico.png");
     background-size: auto;
     background-color: white;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    // example hide elements you don't want on rotation
+    canvas {
+      display: none;
+    }
   }
 }
+//

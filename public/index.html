@@ -8,18 +8,22 @@
   <script src="{{Library 'AD-1.x.x'}}"></script>
   <title>Creative</title>
 </head>
-<body>
-<div id="creative_container">
-
-</div>
-<div class="bt_close"></div>
+<body style="opacity: 0">
+<div id="creative_container"></div>
+<!--<div class="bt_close"></div>-->
 <script>
     function init() {
         /**
          * Creative is created on window in index.js
-         * width and height are optional and used in responsive builds eg mobile interstitial
+         * Set width and height if responsive is true
+         * container: string, responsive: boolean, width: number, height: number
          */
-        Creative.init({container:'#creative_container', width: 300, height: 600});
+        let configObj = {
+            container:'#creative_container',
+            responsive: false,
+            width: 300, height: 600
+        };
+        Creative.init(configObj);
     }
     if(window.location.href.indexOf('file://') !== -1 || window.location.href.indexOf('localhost') !== -1){
         window.document.body.onload = init;

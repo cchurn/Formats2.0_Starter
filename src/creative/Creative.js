@@ -1,5 +1,5 @@
 /*global*/
-import Visualisation from './Visualisation';
+import Display from './Display';
 import Layout from '../core/Layout';
 
 var creative = {
@@ -7,7 +7,7 @@ var creative = {
         container: '.container'
     },
     options: {},
-    config: {container: '', width: 320, height: 568},
+    config: {container: '', responsive: false, width: 320, height: 568},
     init: function(opts) {
 
         for(var i in opts){
@@ -20,9 +20,14 @@ var creative = {
         }
         this.config = Object.create(this.defaults, this.options);
         console.log('creative init', this.config);
-        let layout = new Layout();
-        layout.init(this.config);
-        let visualisation = new Visualisation();
+        if (this.config.responsive) {
+            let layout = new Layout();
+            layout.init(this.config);
+        } else {
+            document.querySelector(this.config.container).style.width = this.config.width + 'px';
+            document.querySelector(this.config.container).style.height = this.config.height + 'px';
+        }
+        let visualisation = new Display();
         visualisation.init(this.config);
     }
 };

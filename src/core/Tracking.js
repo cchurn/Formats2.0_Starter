@@ -9,10 +9,10 @@ export let tracked_events = {
 export function trackClick(e) {
     console.log('%c Tracking click: '+ e.label +' ', 'background: #ffcc00; color: #000000');
     try {
-        if (e.hasOwnProperty('url')) {
-            $AD.click(e.label, e.url);
-        } else {
-            $AD.click(e.label);
+        switch (e) {
+            case tracked_events.TAP_TO_WEBSITE:
+                $AD.click('tap to website', 'http://www.oath.com');
+                break;
         }
     } catch(err) {
         console.log('Failed to track click (probably local):', e.label);
@@ -24,7 +24,11 @@ export function trackClick(e) {
 export function trackEvent(e) {
     console.log('%c Tracking event: '+ e.label +' ', 'background: #4caf50; color: #ffffff');
     try {
-        $AD.event(e.label);
+       switch (e) {
+           case tracked_events.EXAMPLE_TRACKED_EVENT:
+               $AD.event('example tracked event');
+               break;
+       }
     } catch(err) {
         console.log('Failed to track event (probably local):', e.label);
     }

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gsap": "^1.20.4",
+    "gsap": "^2.0.2",
     "jquery": "^3.3.1",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.1"
