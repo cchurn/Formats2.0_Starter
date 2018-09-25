@@ -15,17 +15,17 @@ export function trackClick(e) {
             $AD.click(e.label);
         }
     } catch(err) {
-        console.log('Failed to track click:', e.label);
+        console.log('Failed to track click (probably local):', e.label);
     }
 }
 /**
  * Track events
  */
 export function trackEvent(e) {
-    console.log('%c Tracking event: '+ e.label +' ', 'background: #ffffff; color: #666666');
+    console.log('%c Tracking event: '+ e.label +' ', 'background: #4caf50; color: #ffffff');
     try {
         $AD.event(e.label);
     } catch(err) {
-        console.log('Failed to track event:', e.label);
+        console.log('Failed to track event (probably local):', e.label);
     }
 }
