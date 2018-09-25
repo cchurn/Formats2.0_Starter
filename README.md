@@ -16,7 +16,7 @@ This is a starter project for One Creative builds with Formats 2.0 templates. It
 	  - External CSS and images
   - Approx 20-30kb file size 
 
-
+This basic example is at https://onecreative.aol.com/#ad:401656
 
 # Usage
 ### Clone this repository and install dependencies
