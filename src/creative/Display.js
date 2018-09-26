@@ -9,7 +9,7 @@ import TweenMin from 'gsap';
 class Display extends EventEmitter {
     init(config) {
         // start here
-        console.log('visualisation start');
+        console.log('Display start');
         this.doExample(config);
     }
     // remove this
