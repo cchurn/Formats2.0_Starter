@@ -1,8 +1,6 @@
 /*global*/
 import Display from './Display';
 import Layout from '../core/Layout';
-import loadJS from 'load-js';
-import lazyLoadCSS from 'lazyload-css';
 import LazyLoader from '../core/LazyLoading';
 
 var creative = {
@@ -13,7 +11,7 @@ var creative = {
     config: {container: '', responsive: false, width: 320, height: 568},
     init: function(opts) {
 
-        for(var i in opts) {
+        for (var i in opts) {
             this.options[i] = {
                 value: opts[i],
                 enumerable: true,
@@ -36,47 +34,13 @@ var creative = {
          * If any JS or CSS files are passed via the config they'll be loaded here
          * before Display.js starts
          */
-        let arr_scripts = this.config.lazyLoad;
-        let loadJSArray = [];
-        let loadCSSArray = [];
-        let hasInit;
-        if (arr_scripts && arr_scripts.length) {
-            for (let value of arr_scripts) {
-                switch (value.split('.').pop()) {
-                    case 'js':
-                        let loadObj = {async: false, url: value};
-                        loadJSArray.push(loadObj);
-                        break;
-                    case 'css':
-                        const promise = lazyLoadCSS(value);
-                        loadCSSArray.push(promise);
-                        break;
-                }
-            }
-            Promise.all(loadCSSArray).then(res => console.log(res));
-            loadJS( loadJSArray )
-                .then(() => {
-                    console.log("lazy loaded " + arr_scripts.length + " scripts");
-                    if (layout.isPortrait()) {
-                        this.startDisplay();
-                    } else {
-                        // this prevents initialising until in portrait aspect
-                        layout.on('layout_resize', ()=> {
-                            if (hasInit) return;
-                            if (layout.isPortrait()) {
-                                hasInit = true;
-                                this.startDisplay();
-                            }
-                        });
-                    }
-                });
-        }
-        // end lazy loading
-        else {
+        let lazyLoader = new LazyLoader();
+        lazyLoader.on('done', () => {
             this.startDisplay();
-        }
+        });
+        lazyLoader.load(this.config.lazyLoad);
     },
-    startDisplay: function() {
+    startDisplay() {
         let display = new Display();
         display.init(this.config);
     }

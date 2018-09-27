@@ -5,6 +5,8 @@
   "dependencies": {
     "gsap": "^2.0.2",
     "jquery": "^3.3.1",
+    "lazyload-css": "^1.0.4",
+    "load-js": "^3.0.3",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.1"
   },

@@ -1,6 +1,8 @@
 /* global $AD*/
 export let tracked_events = {
-    EXAMPLE_TRACKED_EVENT: {label: 'example tracked event'},
+    EXAMPLE_TRACKED_EVENT: {track() {
+            $AD.click('tap to website2', 'http://www.oath.com')
+        }},
     TAP_TO_WEBSITE: {label: 'tap to website', url: 'http://www.oath.com'}
 };
 /**
@@ -11,7 +13,8 @@ export function trackClick(e) {
     try {
         switch (e) {
             case tracked_events.TAP_TO_WEBSITE:
-                $AD.click('tap to website', 'http://www.oath.com');
+                console.log(e);
+                // $AD.click('tap to website', 'http://www.oath.com');
                 break;
             default:
         }
