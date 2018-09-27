@@ -3,6 +3,7 @@ import Display from './Display';
 import Layout from '../core/Layout';
 import loadJS from 'load-js';
 import lazyLoadCSS from 'lazyload-css';
+import LazyLoader from '../core/LazyLoading';
 
 var creative = {
     defaults: {
