@@ -16,7 +16,7 @@ export function trackClick(e) {
             default:
         }
     } catch(err) {
-        console.log('Failed to track click (probably local):', e.label);
+        console.log('Failed to track click (probably local):', e);
     }
 }
 /**
@@ -32,6 +32,6 @@ export function trackEvent(e) {
            default:
        }
     } catch(err) {
-        console.log('Failed to track event (probably local):', e.label);
+        console.log('Failed to track event (probably local):', e);
     }
 }

@@ -77,35 +77,6 @@ body {
   right: 20px; }
 
 /**
-Swiper
- */
-.swiper-container {
-  width: 100%;
-  height: 250px; }
-
-html, body {
-  position: relative;
-  height: 100%; }
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  color: #5896ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 250px !important; }
-
-.swiper-button-next, .swiper-button-prev {
-  top: 125px !important;
-  user-select: none;
-  -webkit-user-select: none; }
-
-.swiper-button-next:focus, .swiper-button-prev:focus {
-  outline: none; }
-
-/**
   The following are active on responsive creatives only
  */
 .portrait .rescale_reposition {
