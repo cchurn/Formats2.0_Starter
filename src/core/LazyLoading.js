@@ -31,7 +31,7 @@ class LazyLoader extends EventEmitter {
             loadJS( loadJSArray )
                 .then(() => {
                     Promise.all(loadCSSArray).then(() => {
-                        console.log('%c lazy loaded ' + 3 + ' 👍 : ', 'background: #4ad427; color: #ffffff');
+                        console.log('%c lazy loaded ' + 3 + ' scripts 👍 ', 'background: #4ad427; color: #ffffff');
                         this.emit('done');
                     }).catch((e) => {
                         console.log('%c 🤔 couldn\'t load ' + e.target.src, 'background: #ff0000; color: #ffffff');

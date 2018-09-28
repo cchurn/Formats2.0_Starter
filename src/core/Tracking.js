@@ -1,20 +1,17 @@
 /* global $AD*/
 export let tracked_events = {
-    EXAMPLE_TRACKED_EVENT: {track() {
-            $AD.click('tap to website2', 'http://www.oath.com')
-        }},
-    TAP_TO_WEBSITE: {label: 'tap to website', url: 'http://www.oath.com'}
+    EXAMPLE_TRACKED_EVENT: 'example tracked event',
+    TAP_TO_WEBSITE: 'tap to website'
 };
 /**
  * Track clicks
  */
 export function trackClick(e) {
-    console.log('%c Tracking click: '+ e.label +' ', 'background: #ffcc00; color: #000000');
+    console.log('%c Tracking click: '+ e +' ', 'background: #ffcc00; color: #000000');
     try {
         switch (e) {
             case tracked_events.TAP_TO_WEBSITE:
-                console.log(e);
-                // $AD.click('tap to website', 'http://www.oath.com');
+                $AD.click('tap to website', 'http://www.oath.com');
                 break;
             default:
         }
@@ -26,7 +23,7 @@ export function trackClick(e) {
  * Track events
  */
 export function trackEvent(e) {
-    console.log('%c Tracking event: '+ e.label +' ', 'background: #4caf50; color: #ffffff');
+    console.log('%c Tracking event: '+ e +' ', 'background: #4caf50; color: #ffffff');
     try {
        switch (e) {
            case tracked_events.EXAMPLE_TRACKED_EVENT:

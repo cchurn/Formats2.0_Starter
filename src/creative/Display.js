@@ -1,4 +1,4 @@
-/*global*/
+/*global Linear Swiper*/
 import {EventEmitter} from 'events';
 import {tracked_events, trackClick, trackEvent} from "../core/Tracking";
 
@@ -24,15 +24,34 @@ class Display extends EventEmitter {
             container.insertAdjacentHTML('beforeend', 'Fixed: ' + config.width + ' x ' + config.height);
         }
 
+        /*var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });*/
+
+
+        /**
+         * Tracking
+         */
         // example tracking event (or just use $AD.event([event]))
         trackEvent(tracked_events.EXAMPLE_TRACKED_EVENT);
 
         // example tracking click
-        let bt = document.querySelector('body');
+        let bt1 = document.querySelector('.bt--one');
+        let bt2 = document.querySelector('.bt--two');
         ["click", "touchend"].forEach(function(eventName) {
-            bt.addEventListener(eventName, function(e) {
+            bt1.addEventListener(eventName, function(e) {
                 e.preventDefault();
                 trackClick(tracked_events.TAP_TO_WEBSITE);
+            });
+
+            // load an image which will be compiled into the final build
+            bt2.addEventListener(eventName, function(e) {
+                e.preventDefault();
+                document.querySelector('.testimage').src = require('../img/testimg.png');
+                TweenMin.to(document.querySelector('.testimage'), 5, {rotation: 360, repeat: -1, ease: Linear.easeNone})
             });
         })
     }

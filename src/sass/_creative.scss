@@ -2,7 +2,8 @@
   This file is for styles specific to this creative build
  */
 #creative_container {
-  background-color: #00aaff;
+  position: relative;
+  background-color: #5d50ff;
   color: #ffffff;
   padding: 10px;
   box-sizing: border-box;
@@ -11,4 +12,58 @@
     font-size: 24px;
     margin-bottom: 5px;
   }
+}
+.bt {
+  position: absolute;
+  width: 100px;
+  height: 70px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--one {
+    background-color: #21933b;
+    left: 10px;
+    bottom: 30px;
+  }
+  &--two {
+    background-color: #adcdff;
+    right: 10px;
+    bottom: 30px;
+  }
+}
+.testimage {
+  position: absolute;
+  bottom: 120px;
+  right: 20px;
+}
+
+/**
+Swiper
+ */
+.swiper-container {
+  width: 100%;
+  height: 250px;
+}
+html, body {
+  position: relative;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  color: #5896ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px !important;
+}
+.swiper-button-next, .swiper-button-prev {
+  top: 125px !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.swiper-button-next:focus, .swiper-button-prev:focus {
+  outline:none;
 }
