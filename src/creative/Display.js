@@ -24,14 +24,6 @@ class Display extends EventEmitter {
             container.insertAdjacentHTML('beforeend', 'Fixed: ' + config.width + ' x ' + config.height);
         }
 
-        /*var swiper = new Swiper('.swiper-container', {
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });*/
-
-
         /**
          * Tracking
          */
