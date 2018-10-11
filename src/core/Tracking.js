@@ -1,4 +1,7 @@
 /* global $AD*/
+/**
+ * Add new events here and also add to the switch/case in either trackClick or trackEvent
+ */
 export let tracked_events = {
     EXAMPLE_TRACKED_EVENT: 'example tracked event',
     TAP_TO_WEBSITE: 'tap to website'

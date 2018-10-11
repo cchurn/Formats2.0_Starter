@@ -10,7 +10,9 @@ class Display extends EventEmitter {
         TweenMax.to('body', 1, {alpha: 1});
         this.doExample(config);
     }
-    // remove this
+    /**
+     * This is just for example and can be removed
+     */
     doExample(config) {
         // example dom manipulation
         var container = document.querySelector(config.container);
@@ -20,7 +22,6 @@ class Display extends EventEmitter {
         } else {
             container.insertAdjacentHTML('beforeend', 'Fixed: ' + config.width + ' x ' + config.height);
         }
-
 
         /**
          * Tracking

@@ -25,7 +25,7 @@ This basic example is at https://onecreative.aol.com/#ad:401656
 # Usage
 ### Clone this repository and install dependencies
 
-    git clone https://github.com/cchurn/Formats2.0_Starter.git [your_project_name]
+    git clone https://github.com/cchurn/Formats2.0_Starter.git your_project_name
     cd [your_project_name]
     npm install
 
