@@ -32,10 +32,8 @@ class LazyLoader extends EventEmitter {
                 .then(() => {
                     Promise.all(loadCSSArray).then(() => {
                         console.log('%c lazy loaded ' + arr_scripts.length + ' scripts 👍 ', 'background: #4ad427; color: #ffffff');
-                        this.emit('done');
-                    }).catch((e) => {
-                        console.log('%c 🤔 couldn\'t load ' + e.target.src, 'background: #ff0000; color: #ffffff');
-                    });
+                        this.done();
+                    })
                 }).catch((e) => {
                     console.log('%c 🤔 couldn\'t load ' + e.target.src, 'background: #ff0000; color: #ffffff');
                 });
@@ -44,5 +42,6 @@ class LazyLoader extends EventEmitter {
            this.done();
         }
     }
+
 }
 export default LazyLoader;
