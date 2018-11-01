@@ -3,16 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
-  <meta name="ad.size" content="width=300,height=600">
-  <meta name="ad.frame" content="child">
-  <script src="{{Library 'AD-1.x.x'}}"></script>
   <title>Creative</title>
 </head>
 <body style="opacity: 0">
 <div id="creative_container">
-  <img class="testimage" src="">
-  <div class="bt bt--one">track</div>
-  <div class="bt bt--two">load image</div>
+
 </div>
 <!--<div class="bt_close"></div>-->
 <script>
@@ -30,11 +25,9 @@
         };
         Creative.init(configObj);
     }
-    if(window.location.href.indexOf('file://') !== -1 || window.location.href.indexOf('localhost') !== -1){
-        window.document.body.onload = init;
-    } else {
-        $AD.ready(init);
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+            init();
+        });
 </script>
 </body>
 </html>
