@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
-  <meta name="ad.size" content="width=300,height=600">
-  <meta name="ad.frame" content="child">
-  <script src="{{Library 'AD-1.x.x'}}"></script>
+  <script src="//ads.pictela.com/ads/jsapi/ADTECH.js"></script>
   <title>Creative</title>
 </head>
 <body style="opacity: 0">
@@ -24,8 +22,8 @@
          */
         let configObj = {
             container:'#creative_container',
-            responsive: false,
-            width: 300, height: 600,
+            responsive: true,
+            width: 320, height: 568,
             lazyLoad: ['https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js']
         };
         Creative.init(configObj);
@@ -33,7 +31,7 @@
     if(window.location.href.indexOf('file://') !== -1 || window.location.href.indexOf('localhost') !== -1){
         window.document.body.onload = init;
     } else {
-        $AD.ready(init);
+        ADTECH.ready(init);
     }
 </script>
 </body>
